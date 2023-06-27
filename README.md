@@ -11,14 +11,14 @@ The main objective of this work has been to investigate the use of neural networ
 
 ## Content
 - Folder heartbeat_detector: Pycharm scientific project with the program.
-  - File Custom_Data_Generator.py:
-  - File cut_signal.py:
-  - File heartbeat_detector.py:
-  - File models.py:
-  - File preprocessing.py:
-  - File randomTransformations.py:
-  - File summarize_annotations.py:
-  - File utils.py:
+  - File Custom_Data_Generator.py: Generates and returns batches of data to feed the neural network.
+  - File cut_signal.py: Cut the signals into pieces of 5000 samples to alliviate the need of resources.
+  - File heartbeat_detector.py: Main program containing the workflow explained in the document.
+  - File models.py: File containing the best model tried in this work.
+  - File preprocessing.py: File containing the different functions needed for the data preprocessing like the padding, the matching window, etc.
+  - File randomTransformations.py: Contains the different functions used for data augmentation.
+  - File summarize_annotations.py: Program used to summarize the annotations provided with the database according to the American National Standard for Ambulatory annotations.
+  - File utils.py: Includes different useful methods that can be used in other parts of the project.
     
 - Folder mitdbdir: Contains specific information about the MIT-BIH arrhythmia database.
 
@@ -29,11 +29,14 @@ The main objective of this work has been to investigate the use of neural networ
   - Bxb: results of the comparison between the predicted annotations and the original annotations.
 
 - Folder semi_preprocessed_signals: Contains several folders of the different preprocessing steps.
-  - Folder annotations_padding:
-  - Folder annotations_padding_and_window:
-  - Folder normalized_ecg:
-  - Folder original_annotations:
-  - Folder original_ecg:
-  - Folder window_encoder_resumido:
+  - Folder annotations_padding: Folder that includes the signals with zero padding.
+  - Folder annotations_padding_and_window: Folder that includes the signals including the matching window. applied over the signals in annotations_padding:
+  - Folder normalized_ecg: Folder including the ECG signals after normalizing them.
+  - Folder original_annotations: Folder including the readable files of the original annotations.
+  - Folder original_ecg:Folder including the readable files of the original ECG.
+  - Folder window_encoder_resumido: Folder including the annotations with the encoder applied.
  
 - Folder sliced_signals: Contains the final preprocessed ECGs and annotations plus a csv file containing all the possible annotations that will be used to train the encoder.
+
+## Use
+To use this project, it is recommended to clone the repository and make sure you have all dependencies installed. You can then run the heartbeat_detector.py script to train and test the neural network models on the provided ECG data. 
